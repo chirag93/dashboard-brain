@@ -1,0 +1,19 @@
+{
+  "name": "dashboard-admin",
+  "version": "1.0.0",
+  "description": "An admin interface for the dashboard application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://chirag_b93@bitbucket.org/chirag_b93/dashboard-admin.git"
+  },
+  "keywords": [
+    "dashboard-admin"
+  ],
+  "author": "chirag",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/chirag_b93/dashboard-admin#readme"
+}
