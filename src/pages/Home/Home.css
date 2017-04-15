@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-top: 50px;
 }
 
 
@@ -16,11 +17,11 @@
 }
 
 .input {
-  width: 540px;
+  width: 340px;
 }
 
 .inputDiscription {
-  height: 150px;
+ padding-top: 50px;
   width: 540px;
 }
 
