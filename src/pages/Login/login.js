@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {form,Input,Button} from 'react-bootstrap';
+import {form,Button} from 'react-bootstrap';
 import './login.css'
 
 import {browserHistory} from 'react-router';

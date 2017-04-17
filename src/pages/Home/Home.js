@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import React, {Component} from 'react';
 var Button = require('react-bootstrap/lib/Button')
 var PageHeader = require('react-bootstrap/lib/PageHeader')
@@ -47,15 +48,19 @@ constructor(props) {
   }
 
   handleSelect(selectedKey) {
-    if(selectedKey==2){
+    console.log("selecte dKEYASDFADFS======",selectedKey)
+    if(selectedKey===2){
       browserHistory.push('/mainprojects')
+    }
+    if(selectedKey===3){
+      browserHistory.push('/selectMain')
     }
   }
 
 componentDidMount() {
   console.log("logging props and state ========================");
   console.log(this.state)
-  console.log(this.props.location.state.keytest)
+  
  // this.isLoggedIn()
   this.getContactList();
 }
@@ -157,6 +162,7 @@ renderInputs() {
       <Nav bsStyle="pills" activeKey={1} onSelect={this.handleSelect}>
     <NavItem eventKey={1} href="/home">Create Event</NavItem>
     <NavItem eventKey={2} title="Item">Edit Projects</NavItem>
+     <NavItem eventKey={3} title="Item">Create Project</NavItem>
     
   </Nav>
       <PageHeader>Create A New Event</PageHeader>
