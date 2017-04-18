@@ -42,7 +42,7 @@ handleChange(name,e){
 componentDidMount() {
   console.log("called component //////////")
   console.log(this.props)
-  this.getProjectInfo();
+ 
   this.getContactList();
   
 }
@@ -141,7 +141,7 @@ getProjectInfo(){
     render() {
       return(
         <div>
-        <PageHeader className='wrapper'>Edit Project for {this.props.location.state.mainProject}</PageHeader>
+        <PageHeader className='wrapper'>Create Project Under {this.props.location.state.mainProject}</PageHeader>
           <form style={{paddingLeft:150}}>
               <FormGroup >
                 <InputGroup className='input'>

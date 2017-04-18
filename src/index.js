@@ -13,6 +13,7 @@ import projectInfo from './pages/projects/ProjectInfo';
 import mainProjSelect from './pages/projects/MainProjSelect';
 import subProjectSelect from './pages/projects/SubprojectSelect';
 import editProjectPage from  './pages/projects/EditProjectPage';
+import CreateProject from './pages/projects/CreateProjectPage';
 
 import reducers from './redux/reducers';
 import './index.css';
@@ -57,6 +58,7 @@ ReactDOM.render(
       <Route path='/selectMain' component={mainProjSelect}/>
       <Route path='/select-subProject' component={subProjectSelect}/>
       <Route path='/editProject' component={editProjectPage}/>
+       <Route path='/createProject' component={CreateProject}/>
     </Router>
   </Provider>,
   document.getElementById('root')

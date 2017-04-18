@@ -26,7 +26,7 @@ constructor(props) {
 
  onSelect(val) {
   console.log("Selected: " + val);
-  browserHistory.push({pathname:'/project',state:{mainProject:val}})
+  browserHistory.push({pathname:'/createProject',state:{mainProject:val}})
 }
  
 

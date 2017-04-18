@@ -50,7 +50,7 @@ constructor(props) {
   handleSelect(selectedKey) {
     console.log("selecte dKEYASDFADFS======",selectedKey)
     if(selectedKey===2){
-      browserHistory.push('/mainprojects')
+      browserHistory.push('/select-subProject')
     }
     if(selectedKey===3){
       browserHistory.push('/selectMain')
@@ -175,7 +175,7 @@ renderInputs() {
     <FormGroup >
       <InputGroup className='input'>
         <div>Topic:</div>
-        <FormControl defaultValue={'asdf'} type="text" onChange={this.handleTopicInput} />
+        <FormControl  type="text" onChange={this.handleTopicInput} />
       </InputGroup>
      
       <InputGroup className='inputDiscription'>
@@ -197,66 +197,7 @@ renderInputs() {
          <DatePicker id="example-datepicker" value={this.state.date} onChange={this.handleDateChange} />
          </div>
 
-         <Row>
-             <Col xs={12} sm={3} md={2} lg={1}><InputGroup  style={{'width':250,'paddingRight':20,'paddingTop':50}}>
-             <div>File Name:</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup>  </Col>
-
-             <Col xs={6} sm={6} md={8} lg={10}> <InputGroup  style={{'width':450,'paddingTop':50}}>
-             <div>File Link  :</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup></Col>
-
-         </Row>
-         <Row>
-             <Col xs={12} sm={3} md={2} lg={1}><InputGroup  style={{'width':250,'paddingRight':20,'paddingTop':50}}>
-             <div>File Name:</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup>  </Col>
-
-             <Col xs={6} sm={6} md={8} lg={10}> <InputGroup  style={{'width':450,'paddingTop':50}}>
-             <div>File Link  :</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup></Col>
-
-         </Row>
-         <Row>
-             <Col xs={12} sm={3} md={2} lg={1}><InputGroup  style={{'width':250,'paddingRight':20,'paddingTop':50}}>
-             <div>File Name:</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup>  </Col>
-
-             <Col xs={6} sm={6} md={8} lg={10}> <InputGroup  style={{'width':450,'paddingTop':50}}>
-             <div>File Link  :</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup></Col>
-
-         </Row>
-             <Row>
-             <Col xs={12} sm={3} md={2} lg={1}><InputGroup  style={{'width':250,'paddingRight':20,'paddingTop':50}}>
-             <div>File Name:</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup>  </Col>
-
-             <Col xs={6} sm={6} md={8} lg={10}> <InputGroup  style={{'width':450,'paddingTop':50}}>
-             <div>File Link  :</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup></Col>
-
-         </Row>
-             <Row>
-             <Col xs={12} sm={3} md={2} lg={1}><InputGroup  style={{'width':250,'paddingRight':20,'paddingTop':50}}>
-             <div>File Name:</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup>  </Col>
-
-             <Col xs={6} sm={6} md={8} lg={10}> <InputGroup  style={{'width':450,'paddingTop':50}}>
-             <div>File Link  :</div>
-             <FormControl  type="text" onChange={this.handleInput} />
-             </InputGroup></Col>
-
-         </Row>
+       
 
 <div className="input">
    {this.renderInputs()}

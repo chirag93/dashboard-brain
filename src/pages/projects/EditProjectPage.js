@@ -48,37 +48,7 @@ class EditProj extends Component {
 
     }
 
-handleChange(name,e){
- 
-  var fileDetails = {}
-  var fileDummy = {}
-  console.log("logging")
-  console.log(name);
-  console.log(e)
-  console.log(e.target.name)
-  fileDummy.key = name,
-  fileDummy.name =  e.target.value
-  console.log(this.state.inputs)
-  //  this.state.inputs.map(input => {
-  //  namesArr = []
-  //   fileDetails.key = input
-  //   fileDetails.name =  e.target.value
-  //   namesArr.push(fileDetails)
-  // });
 
-  // for(var i=0;i<this.state.inputs.length;i++){
-  //   console.log("value of i ",i)
-  //   fileDetails.key = this.state.inputs[i]
-  //    fileDetails.name =  e.target.value
-  //    namesArr.push(fileDetails)
-  // }
-fileDummy.key = name
-fileDummy.name =  e.target.value
-
-   this.state.fileArr.push(fileDummy)
-   console.log(this.state.fileArr)
-
-}
 
 componentDidMount() {
   console.log("called component //////////")
@@ -186,7 +156,7 @@ getProjectInfo(){
   }
 
    handleDescriptionInput(e){
-    this.setState({topic:e.target.value})
+    this.setState({description:e.target.value})
   }
 
   handleNoteInput(e){
@@ -218,7 +188,7 @@ getProjectInfo(){
 
     };
 
-   createEvent(){
+   editEvent(){
   console.log(this.state.topic)
   if(this.state.topic!=undefined && this.state.topic!=''&& this.state.topic!=null){
     this.createEventBody.topic = this.state.topic;
@@ -229,7 +199,7 @@ getProjectInfo(){
     this.createEventBody.notes = this.state.notes;
     console.log("logging create Event Body ");
     console.log(this.createEventBody);
-    Api.post('/editEvent/'+this.state.cloneTopicName, this.createEventBody).then(() => {console.log("successfully createed a Event");alert("Event Has been succeessfully created "); window.location.reload()}).catch((err) => {
+    Api.put('/editEvent/'+this.state.cloneTopicName, this.createEventBody).then((e) => {console.log("successfully createed a Event");console.log(e); alert("Projecte Has been succeessfully edited "); window.location.reload()}).catch((err) => {
      console.log("Got Error while updating event");
      console.log(err);  
    });
@@ -241,7 +211,7 @@ getProjectInfo(){
     render() {
       return(
         <div>
-        <PageHeader className='wrapper'>Edit Project for {this.props.location.state.subProject}</PageHeader>
+        <PageHeader className='wrapper'>Edit Project : {this.props.location.state.subProject}</PageHeader>
           <form style={{paddingLeft:150}}>
               <FormGroup >
                 <InputGroup className='input'>
@@ -253,7 +223,7 @@ getProjectInfo(){
                 <InputGroup className='inputDiscription'>
                 <div>Description:</div>
                 
-                <FormControl ref="text" componentClass="textarea" key={this.state.description ? 'notLoadedYet' : 'loaded'} onChange={this.handleTopicInput} defaultValue={this.state.description} />
+                <FormControl ref="text" componentClass="textarea" key={this.state.description ? 'notLoadedYet' : 'loaded'} onChange={this.handleDescriptionInput} defaultValue={this.state.description} />
                 </InputGroup>
 
                 <InputGroup className='inputDiscription'>
@@ -286,6 +256,7 @@ getProjectInfo(){
 
             <div style={{paddingTop:50}}> 
              <div className='well' >
+             <ControlLabel >Addd New File:</ControlLabel>
              <InputGroup className='input'>
                 <div>File Name:</div>
                 <FormControl   ref="text"  key={this.state.fileName ? 'notLoadedYet' : 'loaded'} onChange={this.handleFileNameChange} defaultValue={this.state.fileName}  />
@@ -307,7 +278,7 @@ getProjectInfo(){
               </FormGroup>
           </form>
               <div className="well" style={{maxWidth: 400, margin: '0 auto 10px',display:'flex',flex:1,flexDirection:'column',justifyContent:'space-around'}}>
-              <Button bsStyle="primary" bsSize="large" className='submit' onClick={ () => this.handleSubmit() }>
+              <Button bsStyle="primary" bsSize="large" className='submit' onClick={ () => this.editEvent() }>
               Submit
               </Button>
               </div>

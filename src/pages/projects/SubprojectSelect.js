@@ -5,6 +5,7 @@ var PageHeader = require('react-bootstrap/lib/PageHeader')
 var Select = require('react-select');
 import {browserHistory} from 'react-router';
 import Api from '../../utils/Api'
+var ReactSuperSelect = require('react-super-select');
 
 
 
@@ -18,7 +19,7 @@ class SubProjectSelect extends Component {
 
 constructor(props) {
     super(props);
-   
+    this.onSelect = this.onSelect.bind(this)
     this.state = {
       value: '',
       projects : []
@@ -29,8 +30,9 @@ constructor(props) {
 
 
  onSelect(val) {
+  console.log(this.state.projects)
   console.log("Selected: " + val);
-  browserHistory.push({pathname:'/editProject',state:{subProject:val}})
+  browserHistory.push({pathname:'/editProject',state:{subProject:val.projectAssociated}})
 }
  
 componentDidMount() {
@@ -42,20 +44,23 @@ getContactList(){
   var projectEvent = {}
   var projs =[];
    Api.get('/events').then((events) => {
-        events.forEach(function(event){
-          if(event.isProjectEvent){
-              console.log("logging event((((((((((((((((((");
-              console.log(event.projectAssociated)
-              projectEvent.value = event.projectAssociated;
-              projectEvent.label = event.projectAssociated;
-              projs.push(projectEvent);
+      //   events.forEach(function(event){
+      //     if(event.isProjectEvent){
+      //         console.log("logging event((((((((((((((((((");
+      //         console.log(event.projectAssociated)
+      //         projectEvent.value = event.projectAssociated;
+      //         projectEvent.label = event.projectAssociated;
+      //         console.log(projectEvent)
+      //         projs.push(projectEvent);
+      //         console.log(projs)
 
-          }
+      //     }
           
-      });
+      // });
 
-     this.setState({projects:projs});
-     
+     this.setState({projects:events});
+     console.log("String ="+this.state.projects);
+     console.log(this.state.projects);
     }).catch((err) => {
      
       //this.popupError(err.err.message);
@@ -71,25 +76,29 @@ getContactList(){
 
 render () {
 var options = [
-  { value: 'Financial', label: 'Financial' },
-  { value: 'Main Sector', label: 'Main Sector' },
-  { value: 'Special Project', label: 'Special Project' },
-  { value: 'Reform', label: 'Reform' },
-  { value: 'Cabinet Follow-ups', label: 'cabinet Follow-ups' },
-  { value: 'Others', label: 'Others' }
+  { projectAssociated: 'Financial', label: 'Financial' },
+  { projectAssociated: 'Main Sector', label: 'Main Sector' },
+  { projectAssociated: 'Special Project', label: 'Special Project' },
+  { projectAssociated: 'Reform', label: 'Reform' },
+  { projectAssociated: 'Cabinet Follow-ups', label: 'cabinet Follow-ups' },
+  { projectAssociated: 'Others', label: 'Others' }
 ];
+
+var ops = ["asdf","asdf","asdfasdf"]
 
 var arr = ["asdf","asdf123"]
 
     return (
      <div style={{width:350,margin: '0 auto 10px'}} className='text-align: center'>
       <PageHeader>Select Project to Edit</PageHeader>
-     <Select
-  name="form-field-name"
-  
-  options={this.state.projects}
-  onChange={this.onSelect}
-/>
+    <ReactSuperSelect placeholder="Select A Project" 
+                  searchPlaceholder="Search Project"
+                  multiple={false}
+                  searchable={true}
+                  onChange={this.onSelect}
+                  dataSource={this.state.projects}
+                  optionValueKey='projectAssociated'
+                  optionLabelKey='projectAssociated' />
    
   </div>
     );
