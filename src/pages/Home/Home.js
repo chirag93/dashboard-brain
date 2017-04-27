@@ -112,7 +112,7 @@ handleChange(e) {
   }
 
    handleDescriptionInput(e){
-    this.setState({topic:e.target.value})
+    this.setState({description:e.target.value})
   }
 
   handleDateChange(value, formattedValue){
@@ -184,7 +184,7 @@ renderInputs() {
       </InputGroup>
        <div style={{"paddingTop":50}}>Select Contact:</div>
        <div style={{maxWidth:340}}>
-       <ReactSuperSelect placeholder="Select A Contact" 
+       <ReactSuperSelect placeholder="Person Responsible" 
                   searchPlaceholder="Search Contact"
                   multiple={true}
                   searchable={true}
@@ -197,38 +197,21 @@ renderInputs() {
          <DatePicker id="example-datepicker" value={this.state.date} onChange={this.handleDateChange} />
          </div>
 
-       
-
-<div className="input">
-   {this.renderInputs()}
-</div>
-      </FormGroup>
-      
-
+        <div className="input">
+           {this.renderInputs()}
+        </div>
+        </FormGroup>
+    
       <Button bsSize="large" bsStyle="primary" block style={{maxWidth:340}} onClick={this.createEvent}> Submit 
         </Button>
       
       </form>
       </div>
-        
-        
-
-
-
-
-       
-        
+ 
       </div>
     );
   }
 }
 
-// Analytics -
-// No of Transactions per year, month , week , day
-// No of Active Users per year, month , week , day
-// No of Scratch cards user per year , month ,week ,day
-// No of Scratch cards generated per year , month, week ,day
-// Total amount in Ewallet
-// Generic DB Browser
 
 export default Home;

@@ -14,6 +14,7 @@ import mainProjSelect from './pages/projects/MainProjSelect';
 import subProjectSelect from './pages/projects/SubprojectSelect';
 import editProjectPage from  './pages/projects/EditProjectPage';
 import CreateProject from './pages/projects/CreateProjectPage';
+import CreateContact from  './pages/contacts/CreateContactPage';
 
 import reducers from './redux/reducers';
 import './index.css';
@@ -33,15 +34,18 @@ const store = createStore(
 function requireAuth(nextState,replace){
  
   Api.get('/user').then((user) => {
-        
+        console.log("value of user got ");
+        console.log(user);
      
     }).catch((err) => {
-      
+      console.log("in the catch blacck")
+      browserHistory.push('/login')
+    //   replace({
+    //   pathname: '/login'
+    // });
       //this.popupError(err.err.message);
     });
-    replace({
-      pathname: '/login'
-    })
+    
 }
 
 // Create an enhanced history that syncs navigation events with the store
@@ -50,15 +54,17 @@ const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path='/' component={Home} />
+      <Route path='/' component={Home} onEnter={requireAuth}/>
       <Route path='/login' component={Login} />
-      <Route path='/mainprojects' component={MainProjects}/>
-      <Route path='/select' component={SelectProjects}/>
-      <Route path='/project' component={projectInfo}/>
-      <Route path='/selectMain' component={mainProjSelect}/>
-      <Route path='/select-subProject' component={subProjectSelect}/>
-      <Route path='/editProject' component={editProjectPage}/>
-       <Route path='/createProject' component={CreateProject}/>
+      <Route path='/mainprojects' component={MainProjects} onEnter={requireAuth}/>
+      <Route path='/select' component={SelectProjects} onEnter={requireAuth}/>
+      <Route path='/project' component={projectInfo} onEnter={requireAuth}/>
+      <Route path='/selectMain' component={mainProjSelect} onEnter={requireAuth}/>
+      <Route path='/select-subProject' component={subProjectSelect} onEnter={requireAuth}/>
+      <Route path='/editProject' component={editProjectPage} onEnter={requireAuth}/>
+       <Route path='/createProject' component={CreateProject} onEnter={requireAuth}/>
+       <Route path='/createContact' component={CreateContact} onEnter={requireAuth}/>
+
     </Router>
   </Provider>,
   document.getElementById('root')

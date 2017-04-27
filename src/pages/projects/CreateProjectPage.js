@@ -137,7 +137,7 @@ handleSubmit(){
   }
 
    handleDescriptionInput(e){
-    this.setState({topic:e.target.value})
+    this.setState({description:e.target.value})
   }
 
   handleNoteInput(e){
@@ -145,7 +145,7 @@ handleSubmit(){
   }
 
   onMinistrySelect(item){
-      this.setState({ministry:item});
+      this.setState({ministry:item.value});
   }
 
 
@@ -221,7 +221,7 @@ handleSubmit(){
                 <InputGroup className='inputDiscription'>
                 <div>Description:</div>
                 
-                <FormControl ref="text" componentClass="textarea" key={this.state.description ? 'notLoadedYet' : 'loaded'} onChange={this.handleTopicInput} defaultValue={this.state.description} />
+                <FormControl ref="text" componentClass="textarea" key={this.state.description ? 'notLoadedYet' : 'loaded'} onChange={this.handleDescriptionInput} defaultValue={this.state.description} />
                 </InputGroup>
 
                 <InputGroup className='inputDiscription'>
