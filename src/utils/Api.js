@@ -1,4 +1,4 @@
-const localUrl = 'http://localhost:1337';
+const localUrl = 'https://dashboard-be.herokuapp.com';
 
 const fetchData = (url, config) => {
   console.log(url,config.method);
