@@ -21,7 +21,7 @@ class Login extends Component {
   }
 
   onLogin(){
-    this.loginRequest.email = this.state.email;
+    this.loginRequest.username = this.state.email;
     this.loginRequest.password = this.state.password;
     console.log(this.loginRequest)
     Api.post('/login', this.loginRequest).then(() => 

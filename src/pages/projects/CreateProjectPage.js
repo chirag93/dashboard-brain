@@ -214,19 +214,19 @@ handleSubmit(){
               <FormGroup >
                 <InputGroup className='input'>
                 <div>Topic:</div>
-                <FormControl ref="text" key={this.state.topic ? 'notLoadedYet' : 'loaded'} onChange={this.handleTopicInput} defaultValue={this.state.topic} />
+                <FormControl  onChange={this.handleTopicInput}  />
 
                 </InputGroup>
 
-                <InputGroup className='inputDiscription'>
+                <InputGroup className='inputDiscription'  >
                 <div>Description:</div>
                 
-                <FormControl ref="text" componentClass="textarea" key={this.state.description ? 'notLoadedYet' : 'loaded'} onChange={this.handleDescriptionInput} defaultValue={this.state.description} />
+                <FormControl onChange={this.handleDescriptionInput} componentClass="textarea"/>
                 </InputGroup>
 
-                <InputGroup className='inputDiscription'>
+                <InputGroup className='inputDiscription'  >
                 <div>Notes:</div>
-                 <FormControl ref="text" componentClass="textarea" key={this.state.notes ? 'notLoadedYet' : 'loaded'} onChange={this.handleNoteInput} defaultValue={this.state.notes} />
+                 <FormControl onChange={this.handleNoteInput} componentClass="textarea"/>
                 </InputGroup>
 
               <div style={{"paddingTop":50}}>Select Contact:</div>
@@ -260,7 +260,7 @@ handleSubmit(){
 
             
 
-            <div style={{paddingTop:50}}> 
+         { /* <div style={{paddingTop:50}}> 
              <div className='well' >
              <ControlLabel >Addd New File:</ControlLabel>
              <InputGroup className='input'>
@@ -279,7 +279,7 @@ handleSubmit(){
                 </Button>
                 </div>
              </div>
-             </div>
+             </div> */}
 
               </FormGroup>
           </form>
