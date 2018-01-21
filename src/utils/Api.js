@@ -1,4 +1,4 @@
-const localUrl = 'http://127.0.0.1:5000';
+const localUrl = 'https://9f402965.ngrok.io';
 
 const fetchData = (url, config) => {
   console.log(url,config.method);

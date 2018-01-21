@@ -12,6 +12,7 @@ import ReactD3 from 'react-d3';
 import localImage from '../../assets/brain.png';
 import BackgroundImage from 'react-background-image-loader';
 import { Graph } from 'react-d3-graph';
+import Brainer from './brainer.png';
 
 
 var ScatterChart = ReactD3.ScatterChart;
@@ -39,13 +40,7 @@ constructor(props) {
     this.handleYInput = this.handleYInput.bind(this)
     this.getContactList = this.getContactList.bind(this)
     this.handleChannelInput = this.handleChannelInput.bind(this)
-    // this.handleChange = this.handleChange.bind(this)
-    // this.handleTopicInput = this.handleTopicInput.bind(this)
-    // this.contactHandler = this.contactHandler.bind(this)
-    // this.selectedItemsTemplate = this.selectedItemsTemplate.bind(this)
-    // this.handleDateChange = this.handleDateChange.bind(this)
-    // this.handleDescriptionInput = this.handleDescriptionInput.bind(this)
-   // this.createEvent  = this.createEvent.bind(this)
+    
     this.state = {
       value: '',
       topic:'',
@@ -301,6 +296,9 @@ const myConfig = {
     
 
      <FormGroup >
+      <div className="image" >
+        <img src={Brainer} alt=""/>
+        </div>
      <InputGroup className='input' >
         <div>Channels:</div>
         <FormControl  type="text" onChange={this.handleChannelInput}/>
@@ -315,9 +313,10 @@ const myConfig = {
         <FormControl type="text"  onChange={this.handleYInput} />
       </InputGroup>
       </FormGroup>
-       <Button bsSize="large" bsStyle="primary" block style={{maxWidth:340,paddingLeft:50}} onClick={this.getContactList}> Submit 
+       <Button bsSize="large" bsStyle="primary" block style={{maxWidth:340,paddingLeft:50}} onClick={this.getContactList}> Plot Graphs 
         </Button>
-    
+        
+       
 
 <div className='graph' style={{marginLeft:350}}>
             <LineChart1
