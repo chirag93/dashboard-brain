@@ -1,6 +1,10 @@
 .App {
   text-align: center;
   padding-top: 50px;
+  flex-direction: row;
+  align-content: space-around;
+
+  
 }
 
 
@@ -12,12 +16,27 @@
   color: black;
 }
 
+.background {
+  background-image: url("brain.png");
+  
+      background-position:center;
+
+  background-repeat: no-repeat;
+
+}
+
+.graph {
+  position: center;
+}
+
 .App-intro {
   font-size: small;
+
 }
 
 .input {
   width: 340px;
+  padding-left: 20px;
 }
 
 .inputDiscription {

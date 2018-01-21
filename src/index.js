@@ -7,14 +7,6 @@ import {syncHistoryWithStore, routerReducer} from 'react-router-redux';
 
 import Home from './pages/Home/Home';
 import Login from './pages/Login/login';
-import MainProjects from './pages/projects/MainProjectList'
-import SelectProjects from './pages/projects/ProjectSelect'
-import projectInfo from './pages/projects/ProjectInfo';
-import mainProjSelect from './pages/projects/MainProjSelect';
-import subProjectSelect from './pages/projects/SubprojectSelect';
-import editProjectPage from  './pages/projects/EditProjectPage';
-import CreateProject from './pages/projects/CreateProjectPage';
-import CreateContact from  './pages/contacts/CreateContactPage';
 
 import reducers from './redux/reducers';
 import './index.css';
@@ -54,16 +46,8 @@ const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path='/' component={Home} onEnter={requireAuth}/>
-      <Route path='/login' component={Login} />
-      <Route path='/mainprojects' component={MainProjects} onEnter={requireAuth}/>
-      <Route path='/select' component={SelectProjects} onEnter={requireAuth}/>
-      <Route path='/project' component={projectInfo} onEnter={requireAuth}/>
-      <Route path='/selectMain' component={mainProjSelect} onEnter={requireAuth}/>
-      <Route path='/select-subProject' component={subProjectSelect} onEnter={requireAuth}/>
-      <Route path='/editProject' component={editProjectPage} onEnter={requireAuth}/>
-       <Route path='/createProject' component={CreateProject} onEnter={requireAuth}/>
-       <Route path='/createContact' component={CreateContact} onEnter={requireAuth}/>
+      <Route path='/' component={Home} />
+   
 
     </Router>
   </Provider>,

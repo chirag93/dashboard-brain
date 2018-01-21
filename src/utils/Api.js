@@ -1,4 +1,4 @@
-const localUrl = 'https://dashboard-be.herokuapp.com';
+const localUrl = 'http://127.0.0.1:5000';
 
 const fetchData = (url, config) => {
   console.log(url,config.method);
@@ -22,7 +22,7 @@ const get = (path, hdrs, disableUrl) => {
     credentials: 'include',
     headers: Object.assign({
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     }, hdrs)
   };
   return fetchData(url, config);
