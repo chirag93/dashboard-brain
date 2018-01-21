@@ -2,6 +2,9 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
+"engines": {
+    "node": "6.0.0"
+  },
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
